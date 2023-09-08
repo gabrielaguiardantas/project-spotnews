@@ -10,7 +10,9 @@
         <a href="{% url 'news-details-page' single_news.id %}">
             <h2 class="news-title">{{ single_news.title }}</h2>
             <span class="news-date">{{ single_news.created_at|date:"d/m/Y" }}</span>
-            <img src="{% static single_news.image.url %}" alt="{{ single_news.title }}" height="50" class="news-image">
+            {% if single_news.image %}
+                <img src="{% static single_news.image.url %}" alt="{{ single_news.title }}" height="50" class="news-image">
+            {% endif %}
             {% empty %}
             <p> Não existem notícias cadastradas </p>
         </a>

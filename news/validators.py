@@ -27,3 +27,8 @@ validation_for_news_title = {
     "max_length": 200,
     "validators": [validate_fields, validate_title],
 }
+validation_for_categories_name = {
+    "label": "Nome",
+    "max_length": 200,
+    "required": True,
+}

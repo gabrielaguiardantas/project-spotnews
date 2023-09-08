@@ -12,5 +12,13 @@ class News(models.Model):
     image = models.ImageField(upload_to="img/", blank=True, null=True)
     categories = models.ManyToManyField("Categories", related_name="news")
 
+    def add_categories(self, categories):
+        self.categories.add(categories)
+        self.save()
+
+    def remove_categories(self, categories):
+        self.categories.remove(categories)
+        self.save()
+
     def __str__(self):
         return self.title
